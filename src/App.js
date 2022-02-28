@@ -5,12 +5,17 @@ import ironhackLogo from "./assets/ironhack-logo.png";
 const element = <h1>Hello world!</h1>;
 // => var element = React.createElement('h1', null, 'Hello, world!');
 
-const heading = <h1>🥁🥁🥁 React is cool! 🎉</h1>;
+const heading = <h1>🥁🥁🥁 React is cool! 🎉</h1>; // the equivalent of an arrow function
 
 const student = {
   firstName: "ana",
-  lastName: "martinez",
+  lastName: "martinez"
 };
+
+const students = [
+  (<p>Ana</p>),
+  (<p>Marco</p>)
+];
 
 const { firstName, lastName } = student;
 
@@ -26,11 +31,17 @@ function App() {
     <div className="App">
       
       {heading}
+
+      <button onClick={()=>console.log("Hello from the button")}> Click me!</button>
+      <p>What if I want to render a number?</p>
       
       <h3>
         {/* You can turn this to {firstName} {lastName} */}
         Hi, {student.firstName} {student.lastName}
       </h3>
+      <ul>
+        {students.map(name=><li>{name}</li>)}
+      </ul>
 
       <h4>
         In uppercase: {firstName.toUpperCase()} {lastName.toUpperCase()}
@@ -43,8 +54,8 @@ function App() {
 
       {divElement}
 
-      <img src={ironhackLogo} alt="ironhack logo" />
-
+      <img src={ironhackLogo} alt="ironhack logo" /> {/* If IronhackLogo is a string this behaves normally,
+                                                      if it's an image, the image will be embedded*/}
       <br />
       <hr />
       
